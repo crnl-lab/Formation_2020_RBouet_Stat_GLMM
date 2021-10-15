@@ -10,6 +10,7 @@ output:
     highlight: tango
     code_folding: "show"
   html_document:
+    keep_md: true
     code_folding: "show"
     latex_engine: xelatex
 ---
@@ -24,7 +25,7 @@ library(rmarkdown)    # You need this library to run this template.
 library(epuRate)      # Install with devtools: install_github("holtzy/epuRate", force=TRUE)
 library(DT)           # pour faire de joies affichage de dataframe
 # library(readtext)
-library(tcltk2)   # choose directory
+# library(tcltk2)   # choose directory
 library(readxl)
 library(afex)       # nouveau package, surveiller les MAJ
 library(lme4)
@@ -55,7 +56,7 @@ For experimentalists, the go-to statistical tool is the ANOVA. The way we learn 
 
 <center>
 
-![Typical ANOVA table](../Pictures/ANOVA_table.jpeg)
+![Typical ANOVA table](Pictures/ANOVA_table.jpeg)
 
 </center> </br>
 
@@ -134,14 +135,6 @@ ggplot(df, aes(x = contrasts, y = value, group = id, color = as.factor(id))) +
 
 Most people either use ANOVA for categorical predictor variables, or regression for continuous predictor variables. But we have seen that ANOVA is based on a linear regression, so they are actually the same thing! <br>
 
-<!-- ANCOVA: continuous and categorical predictors. <br> -->
-<!-- Regression: categorical and continuous predictors. -->
-
-<!--  Why use regression as opposed to ANOVA ? <br> -->
-<!-- 	No temptation to dichotomize continuous predictors. <br> -->
-<!-- 	Intuitive interpretation. -->
-<!-- => j'ai pas compris ce que tu voulais dire là -->
-	
 When you use Anova, you implicitly describe your data with linear model. <br>
 Let's check this with real data:
 
@@ -313,7 +306,7 @@ Go to [this page](http://conjugateprior.org/2013/01/formulae-in-r-anova/ "Formul
 
 <center>
 
-![Formula for fixed effects](../Pictures/Formula_Fixed.png)
+![Formula for fixed effects](Pictures/Formula_Fixed.png)
 
 </center> </br>
 
@@ -323,7 +316,7 @@ Go to [this page](http://conjugateprior.org/2013/01/formulae-in-r-anova/ "Formul
 
 <center>
 
-![Formula for random effects](../Pictures/Formula_Random.png) 
+![Formula for random effects](Pictures/Formula_Random.png) 
 
 </center> </br>
 
@@ -452,15 +445,9 @@ plot(model.02)
 
 If you can detect a clear pattern, shape or trend, or heterogeneity along the X-axis, then your model has room for improvement. Examples:
 
-<!-- <center> -->
-
-<!-- ![Formula Fixed Effects.](../Pictures/Diagnos_good.png) -->
-
-<!-- </center> </br> -->
-
 <center>
 
-![Formula Fixed Effects.](../Pictures/Diagnos_bad_01.png) ![Formula Fixed Effects.](../Pictures/Diagnos_bad_02.png) ![Formula Fixed Effects.](../Pictures/Diagnos_bad_03.png)
+![Formula Fixed Effects.](Pictures/Diagnos_bad_01.png) ![Formula Fixed Effects.](Pictures/Diagnos_bad_02.png) ![Formula Fixed Effects.](Pictures/Diagnos_bad_03.png)
 
 </center> </br>
 
@@ -596,7 +583,7 @@ To better understand the link function and what’s the difference between a log
 Residual interpretation for generalized linear mixed models (GLMMs) is often problematic. 
 [**DHARMa**](https://cran.r-project.org/web/packages/DHARMa/vignettes/DHARMa.html) package aims at solving these problems by creating readily interpretable residuals for generalized linear (mixed) models that are standardized. This is achieved by a simulation-based approach.
 
-![DHARMa Residuals plot](../Pictures/Dharma.png)
+![DHARMa Residuals plot](Pictures/Dharma.png)
 
 
 ## Significance {#glmm:significance}
@@ -641,7 +628,7 @@ Linear least squares (the procedure used for classic linear regressions) provide
 
 <center>
 
-![Ordinary Least Squares (OLS)](../Pictures/OLS.png)
+![Ordinary Least Squares (OLS)](Pictures/OLS.png)
 
 </center> </br>
 
@@ -649,7 +636,7 @@ Linear least squares (the procedure used for classic linear regressions) provide
 
 <center>
 
-![The shortname for all this gibberish is "lmer()"](../Pictures/lme4-maths.png)
+![The shortname for all this gibberish is "lmer()"](Pictures/lme4-maths.png)
 </center> </br>
 
 ## Preventive measures {#debugging:preventive}
@@ -676,7 +663,7 @@ Optimizers can be conceived as hikers who evolve in a landscape, looking for the
 
 <center>
 
-![An optimizer walking down the parameter space](../Pictures/optimizer-landscape.jpg)
+![An optimizer walking down the parameter space](Pictures/optimizer-landscape.jpg)
 
 </center> </br>
 
@@ -755,7 +742,7 @@ there is **no intercept or slope variance in the data**. For example, maybe the 
 
 <center>
 
-![According to this inspirational card, LMM is a better friend than ANOVA.](../Pictures/true-friends.jpg)
+![According to this inspirational card, LMM is a better friend than ANOVA.](Pictures/true-friends.jpg)
 
 </center> </br>
 
@@ -894,7 +881,7 @@ It should be of the form `~ specs | by `
 specs : names of the preedictor over wich marginals are desired. <br>
 by    : names of predictors to condition on.
 
-![Formula for fixed effects](../Pictures/emmeans_formula.png)
+![Formula for fixed effects](Pictures/emmeans_formula.png)
 
 
 
